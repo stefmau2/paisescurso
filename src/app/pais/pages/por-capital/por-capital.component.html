@@ -1,0 +1,32 @@
+<h2>Por Capital</h2>
+<hr>
+
+<div class="animate__animated animate__fadeIn animate__faster">
+    <div class="row">
+        <div class="col-12">
+         <app-pais-input 
+                        (onEnter)="buscar($event )"
+                        placeholder="Buscar capital"
+         ></app-pais-input>
+        </div>
+    </div>
+    <ul class="list-group">
+        <li *ngFor="let pais of paises"
+        class="list-group-item list-group-item-action">
+        <a >{{pais.capital}}</a>
+    </li> </ul>
+     
+</div>
+
+<hr>
+
+<div *ngIf="hayError"
+    class="alert alert-danger">
+    no se encontrol nada con el {{termino}} 
+</div>
+
+<div *ngIf="paises.length > 0"class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
